@@ -10,8 +10,22 @@
 <body class="container" style="background-color: azure;">
     <h1 class="text-center text-success">Search Player And Sports</h1>
     <div class="input-group mb-3 w-50 mx-auto">
-        <input type="text" class="form-control" placeholder="Search Player and Sports" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-search">Search</button>
+        <input id="search-field" type="text" class="form-control" placeholder="Search By country Name" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button onclick="searchFood()" class="btn btn-outline-secondary" type="button" id="button-search">Search</button>
+    </div>
+
+    <!-- Search Results -->
+
+    <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
 
