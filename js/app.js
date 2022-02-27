@@ -1,10 +1,20 @@
 const allPlayers= () => {
+    document.getElementById('player-container').innerHTML = '';
+    document.getElementById('spinner').style.display = 'block';
+
     const searchValue = document.getElementById('search-box').value;
     const url = `https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p=${searchValue}`;
     fetch(url)
     .then(res => res.json())
-    .then(data => showPlayerDetails(data.player))
-
+    .then(data => {
+        if(data.player === null){
+            document.getElementById('spinner').style.display = 'block';
+        }
+        else{
+            showPlayerDetails(data.player);
+            document.getElementById('spinner').style.display = 'none';
+        }
+    });
     document.getElementById('search-box').value = '';
 };
 
@@ -39,6 +49,17 @@ const details = (id) => {
 };
 
 const saveDetails = (info) => {
+    console.log(info);
+
+    if(info.strGender === "Male"){
+        document.getElementById("male").style.display = "block";
+        document.getElementById("female").style.display = "none";
+    }
+    else{
+        document.getElementById("male").style.display = "none";
+        document.getElementById("female").style.display = "block";
+    }
+
     document.getElementById('details-container').innerHTML = `
         <div>
             <img class="w-75" src="${info.strThumb}" alt="">
